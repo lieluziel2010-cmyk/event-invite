@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html lang="he">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>הזמנה - עלייה לתורה של עידו עוזיאל</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            direction: rtl;
+            padding: 20px;
+            background: linear-gradient(135deg, #fffaf0 0%, #fff 100%);
+            color: #444;
+        }
+
+        .card {
+            max-width: 720px;
+            margin: 24px auto;
+            background: white;
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 32px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 38px;
+            color: #b8860b;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #6b4e12;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 6px 0 14px;
+            font-size: 17px;
+            color: #5c4b19;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 6px;
+            font-weight: 600;
+            color: #6b4e12;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #d4af37;
+            font-size: 16px;
+        }
+
+        .radios {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        input[type=radio] {
+            accent-color: #d4af37;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 18px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #d4af37, #f5d76e);
+            color: white;
+            box-shadow: 0 4px 10px rgba(212,175,55,0.3);
+            transition: transform 0.2s;
+        }
+
+            .btn:hover {
+                transform: scale(1.05);
+            }
+
+        .thanks {
+            display: none;
+            margin-top: 16px;
+            padding: 12px;
+            background: #fff8dc;
+            border-radius: 8px;
+            color: #6b4e12;
+            border: 1px solid #d4af37;
+            font-weight: 600;
+        }
+
+        footer {
+            font-size: 12px;
+            color: #888;
+            margin-top: 18px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>הנכם מוזמנים!</h1>
+        <h2>עלייה לתורה של עידו עוזיאל</h2>
+        <p>בתאריך <strong>23 לאוקטובר</strong> בשעה <strong>9:30 בבוקר</strong><br>בבית הכנסת <strong>אוהל יצחק</strong>, חטיבת הראל 15</p>
+
+        <form id="rsvpForm"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSfOEpsmi89qwqNMp95ZQ3PMfENrOYjdet0EZySnPCO-MdnY8w/formResponse"
+              method="POST"
+              target="hidden_iframe">
+
+            <label for="name">שם מלא</label>
+            <input id="name" name="entry.2012874567" type="text" placeholder="הכנס/י שם מלא" required />
+
+            <label>האם מגיע/ה?</label>
+            <div class="radios">
+                <label><input type="radio" name="entry.651813249" value="מגיע" required> מגיע/ה</label>
+                <label><input type="radio" name="entry.651813249" value="לא מגיע" required> לא מגיע/ה</label>
+            </div>
+
+            <button class="btn" type="submit">שלח הרשמה</button>
+
+            <div id="thanks" class="thanks">תודה רבה! ההרשמה נרשמה בהצלחה 💛</div>
+        </form>
+
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    </div>
+
+    <script>
+    document.getElementById('rsvpForm').addEventListener('submit', function(e){
+      document.getElementById('thanks').style.display = 'block';
+      setTimeout(function(){
+        document.getElementById('rsvpForm').reset();
+      }, 800);
+    });
+    </script>
+</body>
+</html>
